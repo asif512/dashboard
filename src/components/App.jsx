@@ -1,10 +1,10 @@
 import React from "react";
-import "../compon";
+import { Layout } from "../views/Layout/Layout";
 
 export const App = () => {
   return (
     <div className="App">
-      <p>React Dashboard App!!</p>
+      <Layout />
     </div>
   );
 };
