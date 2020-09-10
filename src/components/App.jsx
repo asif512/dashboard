@@ -1,10 +1,15 @@
 import React from "react";
-import { Layout } from "../views/Layout/Layout";
+import { Routes } from "./Routes/Routes";
+import { BrowserRouter as Router } from "react-router-dom";
 
-export const App = () => {
+const App = () => {
   return (
     <div className="App">
-      <Layout />
+      <Router>
+        <Routes />
+      </Router>
     </div>
   );
 };
+
+export default App;

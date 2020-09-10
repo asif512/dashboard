@@ -1,43 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Topbar } from "../../components/Topbar/Topbar";
+import { Sidebar } from "../../components/Sidebar/Sidebar";
+import { storeContext } from "../../context/Context";
 
 export const Layout = (props) => {
+  const initialState = useContext(storeContext);
+  const { state } = initialState;
   return (
-    <div className="layout">
-      <div
-        className="topbar"
-        style={{
-          position: "absolute",
-          top: 0,
-          right: 0,
-          left: "200px",
-          height: "50px",
-          backgroundColor: "#c1c1c1",
-        }}
-      >
-        topbar
-      </div>
-      <div
-        className="sidebar"
-        style={{
-          position: "absolute",
-          width: "200px",
-          top: 0,
-          left: 0,
-          height: "100%",
-          backgroundColor: "#c1c1c1",
-        }}
-      >
-        sidebar
-      </div>
+    <div className="layout" style={{ height: "100%" }}>
+      <Topbar />
+      <Sidebar />
       <main
         className="main-content"
         style={{
           position: "absolute",
-          top: 50,
-          left: "200px",
+          top: "50px",
+          right: 0,
+          padding: 20,
+          left: !state.toggleMenu ? "200px" : "60px",
         }}
       >
-        main content
+        {props.children}
       </main>
     </div>
   );
